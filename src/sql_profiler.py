@@ -25,6 +25,7 @@ class ParseSql:
     def _deduplicate_sql_expressions(self):
         results = defaultdict(int)
         statements = {}
+        # count statements by hash
         for s in self.analyzed:
             results[s['hash']] += 1
             statements[s['hash']] = s
@@ -38,7 +39,7 @@ class ParseSql:
                 'total_time': count * statement['time'],
                 'statement': statement,
             })
-        profile.sort(key=lambda r: r['count'])
+        profile.sort(key=lambda r: r['total_time'])
         return profile
 
 
