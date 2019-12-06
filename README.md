@@ -1,2 +1,4 @@
 # sql-profiler
-Profiler for SQL
+Django ORM profiling tool
+
+Help untangle SQL queries and their performance.
